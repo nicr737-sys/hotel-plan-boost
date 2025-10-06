@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, Award, Briefcase, FileText } from "lucide-react";
 
 const Hero = () => {
   const handleCTAClick = (action: string) => {
@@ -11,58 +11,78 @@ const Hero = () => {
     }
   };
 
-  return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 gradient-hero opacity-95" />
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNSIgb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-10" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h1 className="mb-6 leading-tight">
-            Бизнес-план гостиницы (отеля): разработка под банк и инвестора
-          </h1>
-          
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Начиная с 2010 года мы подготовили целый ряд бизнес-планов гостиниц: курортные отели в России, Абхазии, Камбодже, на Кипре, мини-отели, бизнес-гостиницы, апарт-отели.
-          </p>
+  const kpis = [
+    { icon: Award, label: "Опыт с", value: "2010 года" },
+    { icon: Briefcase, label: "Реализовано проектов", value: "80+" },
+    { icon: FileText, label: "Публикаций и кейсов", value: "120+" }
+  ];
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button 
-              size="lg" 
-              className="bg-white text-primary hover:bg-white/90 shadow-elevated text-lg px-8 py-6 h-auto"
-              onClick={() => {
-                handleCTAClick('cta_brief');
-                document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Заполнить бриф
-            </Button>
+  return (
+    <section className="py-24 bg-background">
+      <div className="container-premium">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h1 className="mb-6">
+              Бизнес-план гостиницы (отеля): разработка под банк и инвестора
+            </h1>
             
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-white/10 text-white border-white/30 hover:bg-white/20 backdrop-blur-sm text-lg px-8 py-6 h-auto"
-              onClick={() => {
-                handleCTAClick('cta_example');
-                document.getElementById('examples')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Начиная с 2010 года мы подготовили целый ряд бизнес-планов гостиниц: курортные отели в России, Абхазии, Камбодже, на Кипре, мини-отели, бизнес-гостиницы, апарт-отели.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button 
+                size="lg" 
+                className="text-base px-8 transition-smooth"
+                onClick={() => {
+                  handleCTAClick('cta_brief');
+                  document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Заполнить бриф
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-base px-8 transition-smooth"
+                onClick={() => {
+                  handleCTAClick('cta_example');
+                  document.getElementById('examples')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Получить пример
+              </Button>
+            </div>
+
+            <a 
+              href="tel:+78003334729" 
+              className="inline-flex items-center gap-2 text-primary text-lg hover:text-primary/80 transition-smooth font-semibold"
+              onClick={() => handleCTAClick('cta_call')}
             >
-              Получить пример бизнес-плана
-            </Button>
+              <Phone className="w-5 h-5" />
+              8-800-333-47-29
+            </a>
           </div>
 
-          <a 
-            href="tel:+78003334729" 
-            className="inline-flex items-center gap-2 text-white text-xl hover:text-white/80 transition-colors"
-            onClick={() => handleCTAClick('cta_call')}
-          >
-            <Phone className="w-6 h-6" />
-            <span className="font-semibold">8-800-333-47-29</span>
-          </a>
-          
-          <p className="mt-4 text-white/80 text-sm">
-            Бесплатный звонок по России
-          </p>
+          <div className="grid grid-cols-1 gap-6">
+            {kpis.map((kpi, index) => {
+              const Icon = kpi.icon;
+              return (
+                <div key={index} className="bg-card border border-border p-6 transition-smooth hover:shadow-card">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-accent/10 rounded">
+                      <Icon className="w-6 h-6 text-accent" strokeWidth={2} />
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground mb-1">{kpi.label}</div>
+                      <div className="text-2xl font-bold text-foreground">{kpi.value}</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

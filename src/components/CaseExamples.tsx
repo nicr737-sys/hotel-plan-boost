@@ -1,5 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, ExternalLink } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 
 const CaseExamples = () => {
   const cases = [
@@ -22,33 +21,36 @@ const CaseExamples = () => {
   ];
 
   return (
-    <section id="examples" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="mb-6">Примеры наших проектов</h2>
-          <p className="text-lg text-muted-foreground">
+    <section id="examples" className="bg-secondary/30">
+      <div className="container-premium">
+        <div className="max-w-3xl mb-16">
+          <h2 className="mb-4">Примеры наших проектов</h2>
+          <p className="text-xl text-muted-foreground">
             Начиная с 2010 года мы подготовили целый ряд бизнес-планов гостиниц: курортные отели в России, Абхазии, Камбодже, на Кипре, мини-отели, бизнес-гостиницы, апарт-отели.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {cases.map((project, index) => (
-            <Card key={index} className="shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 cursor-pointer border-2">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-3 leading-tight">{project.title}</h3>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <MapPin className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">{project.location}</span>
-                </div>
-              </CardContent>
-            </Card>
+            <div 
+              key={index} 
+              className="bg-card border border-border p-6 transition-smooth hover:shadow-card cursor-pointer group"
+            >
+              <h3 className="text-lg font-semibold mb-4 leading-tight group-hover:text-primary transition-smooth">
+                {project.title}
+              </h3>
+              <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                <MapPin className="w-4 h-4 flex-shrink-0" strokeWidth={2} />
+                <span>{project.location}</span>
+              </div>
+            </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center">
           <a 
             href="#contact-form" 
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg transition-colors"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg transition-smooth group"
             onClick={() => {
               if (typeof window !== 'undefined' && (window as any).gtag) {
                 (window as any).gtag('event', 'select_content', {
@@ -59,7 +61,7 @@ const CaseExamples = () => {
             }}
           >
             Запросить подробные примеры
-            <ExternalLink className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
           </a>
         </div>
       </div>

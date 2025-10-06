@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import ForWhom from "@/components/ForWhom";
 import WorkScope from "@/components/WorkScope";
+import KPIBadges from "@/components/KPIBadges";
 import CaseExamples from "@/components/CaseExamples";
 import ProcessSteps from "@/components/ProcessSteps";
 import FAQ from "@/components/FAQ";
@@ -43,10 +44,11 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">
       <Hero />
       <ForWhom />
       <WorkScope />
+      <KPIBadges />
       <CaseExamples />
       <ProcessSteps />
       <FAQ />
@@ -54,14 +56,16 @@ const Index = () => {
       <ContactForm />
       
       {/* Footer */}
-      <footer className="bg-foreground/5 py-8 border-t">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground">
-            © 2010-2025 ООО "ЭКСПЕРТЫ БИЗНЕС-ПЛАНИРОВАНИЯ". Все права защищены.
-          </p>
-          <p className="text-muted-foreground mt-2">
-            Профессиональная разработка бизнес-планов гостиниц и отелей
-          </p>
+      <footer className="bg-secondary/30 py-12 border-t border-border">
+        <div className="container-premium">
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground mb-2">
+              © 2010-2025 ООО "ЭКСПЕРТЫ БИЗНЕС-ПЛАНИРОВАНИЯ". Все права защищены.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Профессиональная разработка бизнес-планов гостиниц и отелей
+            </p>
+          </div>
         </div>
       </footer>
     </main>
