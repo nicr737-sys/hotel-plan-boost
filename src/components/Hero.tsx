@@ -39,7 +39,7 @@ const Hero = () => {
                   document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Заполнить бриф
+                Получить консультацию
               </Button>
               
               <Button 
