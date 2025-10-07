@@ -12,9 +12,9 @@ const Hero = () => {
   };
 
   const kpis = [
-    { icon: Award, label: "Опыт с", value: "2010 года" },
-    { icon: Briefcase, label: "Реализовано проектов", value: "80+" },
-    { icon: FileText, label: "Публикаций и кейсов", value: "120+" }
+    { icon: Award, label: "Опыт с", value: "1996 года" },
+    { icon: Briefcase, label: "Реализовано проектов", value: "30+" },
+    { icon: FileText, label: "Кейсов финансирования через ЦФА", value: "3" }
   ];
 
   return (
