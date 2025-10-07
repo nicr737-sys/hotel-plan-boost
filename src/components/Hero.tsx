@@ -51,7 +51,7 @@ const Hero = () => {
                   document.getElementById('examples')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Получить пример
+                Посмотреть пример
               </Button>
             </div>
 
